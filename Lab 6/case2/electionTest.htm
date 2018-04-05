@@ -1,0 +1,91 @@
+<html>
+<head>
+	<link href="results.css" rel="stylesheet" type="text/css" />
+	<script src="votes.js"></script>
+	<script src="barchart.js"></script>
+	
+	<script>
+		function totalVotes(votes)
+		{
+			var total = 0;
+			
+			for (var count = 0; count < votes.length; count++)
+			{
+				total += votes[count];
+			}
+			return total;
+		}
+		
+		function calcPercent(item, sum)
+		{
+		return Math.round(item/sum * 100);
+		}
+		
+		function createBar(partyType, percent)
+		{
+			if (partyType == "D") 
+			{
+				var barText = "<td class='dem'> </td>";
+			}
+			else if (partyType == "R")
+			{
+				barText = "<td class='rep'> </td>";
+			}
+			else if (partyType == "I")
+			{
+				barText = "<td class='ind'> </td>";
+			}
+			else if (partyType == "G")
+			{
+				barText = "<td class='green'> </td>";
+			}
+			else (partyType == "I")
+			{
+				barText = "<td class='lib'> </td>"
+			}
+			
+			for (bar = 0; bar <= percent.length; bar++)
+			{
+			document.write(barText);
+			}
+			
+			function showResults(race, name, party, votes)
+			{
+			var totalV = totalVotes(votes);
+			
+			document.write("<h2>" + race + "</h2>");
+				document.write("<table>");
+					document.write("<tr>");
+						document.write("<th>Candidate</th>");
+						document.write("<th class='num'>Votes</th>");
+						document.write("<th class='num'>%</th>");
+					document.write("</tr>");
+					
+				for (var candidate = 0; candidate < name.length; candidate++)
+				{
+					document.write("<tr>");
+						document.write("<td>" + name[candidate] + "" "(" + party[candidate] + "}" + "</td>");
+						document.write("<td class='num'>" + votes[candidate] + "</td>");
+					
+					var percent = calcPercent(votes[candidate]total);
+				
+					document.write("<td class='num'>" + "(" + percent + "%" ")" + "</td>"
+				
+					creatBar(party, percent);
+				
+					document.write("</tr>");
+				}
+				
+				document.write("</table>");
+			}
+		}
+	</script>
+</head>
+<body>
+	<script>
+		document.write(totalVotes(votes1));
+		document.write(calcPercent(45000, 94000));
+		
+	</script>
+</body>
+</html>

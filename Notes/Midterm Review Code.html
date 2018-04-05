@@ -1,0 +1,63 @@
+  Hands on exercise question 1 for review quiz (tut.10)
+  
+  Assume that you've been asked to create JavaScript code that displays a calendar for the current month in an iframe on a web page. (Like you did in Case 3)
+
+Your client has provided you with the web page and a set of 12 files named Jan.html, Feb.html, Mar.html etc. 
+
+Your client has also provided you with an external JavaScript file called dateStuff.js that contains a function called getMonthAbbrev() that takes no parameters and returns the 3 character abbreviation of the current month.
+
+Write a script block that contains a JavaScript function
+The name of the function is showCalendar. It takes no parameters.
+Declare a variable called thisMonth that stores the value returned from a call to the getMonthAbbrev() function.
+Write the opening iframe tag to the web page. The src attribute for the iframe should be the name of the file for this month.
+Write the closing iframe tag to the web page.
+Write a script block that calls the function to show the calendar.
+ 
+ <script>
+	function showCalendar()
+	{
+		var thisMonth = getMonthAbbrev();
+		document.write('<iframe src="'+thisMonth+'.html">');
+		document.write("</iframe>");
+	}
+ </script>
+ 
+ <script>
+	showCalendar();
+ </script>
+ 
+  Hands on exercise question 2 for review quiz (tut.11)
+  
+  Assume that you've been asked to create a JavaScript function definition called getPartOfWeek.  It takes no parameters.  It returns either "Weekday" or "Weekend" using the current date/time.
+Write a script block that contains a JavaScript function
+The name of the function is getPartOfWeek. It takes no parameters.
+Declare a variable today and set it equal to the current date/time.
+Declare a variable day and set it equal to the weekday frm today. 
+Declare a variable output and set it equal to the empty string.
+Use the conditional operator or an if statement to assign "weekday" or "weekend" to the variable outpu based on the value in the variable day.  Sunday will have a value of 0.  Monday will have a value of 1.  Monday - Friday are weekdays.  Saturday and Sunday are weekends.
+Return the value in the variable output.
+Write a script block that calls the function to show whether it is the weekend or weekday in the web page, in the form called calendarForm, in an input tag called weekend.
+ 
+ <script>
+	function getPartOfWeek()
+	
+	{
+	var today = new Date();
+	var day = today.getDay();
+	var output = "";
+	
+	if (day == 0 || day == 6)
+		output = "weekend";
+	else 
+		output = "weekday";
+		 
+	return output;
+	}
+	
+ </script>
+ 
+ <script>
+	document.calendarForm.weekend.value = getPartOfWeek();
+ </script>
+ 
+ 
